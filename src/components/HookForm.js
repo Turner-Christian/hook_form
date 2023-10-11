@@ -8,15 +8,23 @@ const HookForm = (props) => {
     const [ confirmPassword, setConfirmPassword ] = useState('')
 
     const handleSumbit = (e) => {
+        e.preventDefault();
+
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
 
     }
 
     return (
         <div>
-            <form action="handleSubmit">
+            <form onSubmit={ handleSumbit }>
                 <div>
                     <label htmlFor="firstName">First Name:  </label>
                     <input name='firstName' type="text" value={firstName} onChange={ (e) => setFirstName(e.target.value) }/>
+                    
                 </div>
                 <div>
                     <label htmlFor="lastName">Last Name:  </label>
@@ -33,6 +41,9 @@ const HookForm = (props) => {
                 <div>
                     <label htmlFor="confirmPassword">Confirm Password:  </label>
                     <input name='confirmPassword' type="text" value={confirmPassword} onChange={ (e) => setConfirmPassword(e.target.value) }/>
+                </div>
+                <div>
+                    <input type="submit" />
                 </div>
             </form>
         </div>
